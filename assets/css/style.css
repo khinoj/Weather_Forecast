@@ -1,0 +1,19 @@
+:root {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    font-size: 38px;
+    background-color: blue;
+    background-image: linear-gradient(to left, rgb(87, 162, 206) , rgb(49, 20, 156));
+    text-align: center;
+    padding-bottom: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: yellow;
+}
