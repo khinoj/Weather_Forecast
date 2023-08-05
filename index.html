@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,33 @@
 
 <body>
     <header>Weather Forecast</header>
+    <div class="container">
+        <div class="card">
+            <h3>Search for a City:</h3>
+            <form id="city-form">
+                <input id="search-input" type="text" placeholder="Search for A City">
+                <button id="search-button" class="btn searchBtn">Search</button>
+            </form>
+        </div>
+        <div class="card">
+            <button value="Atlanta" class="btn">Atlanta</button>
+            <button value="Denver" class="btn">Denver</button>
+            <button value="Seattle" class="btn">Seattle</button>
+            <button value="San Francisco" class="btn">San Francisco</button>
+            <button value="Orlando" class="btn">Orlando</button>
+            <button value="New York" class="btn">New York</button>
+            <button value="Chicago" class="btn">Chicago</button>
+            <button value="Austin" class="btn">Austin</button>
+        </div>
+    </div>
 
+    <div class="weather">
+        
+    </div>
 
+    <div class="fivedays">
 
+    </div>
 
 
 
@@ -21,4 +46,5 @@
 
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
