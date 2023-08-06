@@ -7,43 +7,48 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Forecast</title>
 </head>
-
+<header>Weather Forecast</header>
 <body>
-    <header>Weather Forecast</header>
-    <div class="container">
-        <div class="card">
-            <h3>Search for a City:</h3>
-            <form id="city-form">
-                <input id="search-input" type="text" placeholder="Search for A City">
-                <button id="search-button" class="btn searchBtn">Search</button>
-            </form>
-        </div>
-        <div class="card">
-            <button value="Atlanta" class="btn">Atlanta</button>
-            <button value="Denver" class="btn">Denver</button>
-            <button value="Seattle" class="btn">Seattle</button>
-            <button value="San Francisco" class="btn">San Francisco</button>
-            <button value="Orlando" class="btn">Orlando</button>
-            <button value="New York" class="btn">New York</button>
-            <button value="Chicago" class="btn">Chicago</button>
-            <button value="Austin" class="btn">Austin</button>
-        </div>
-    </div>
+    <main>
 
-    <div class="weather">
-        
-    </div>
-
-    <div class="fivedays">
-
-    </div>
-
-
-
-
-
-
-
+        <aside>      
+            <section>
+                <h2>Search for a City:</h2>
+                <!-- Enter a Specific city to searched -->
+                <form>
+                    <input placeholder="Enter a City" id="userinput" type="text">
+                    <button id="searchbtn" type="button"> Search </button>
+                </form>
+                <!-- Enter a Specific city to searched End-->
+            </section>
+            <section id="majorcity">
+                <!-- Pre-set Popular City -->
+                <button class="majorcities"> Atlanta </button>
+                <button class="majorcities"> Denver </button>
+                <button class="majorcities"> Seattle </button>
+                <button class="majorcities"> San Francisco </button>
+                <button class="majorcities"> Orlando </button>
+                <button class="majorcities"> New York </button>
+                <button class="majorcities"> Chicago </button>
+                <button class="majorcities"> Austin </button>
+                <!-- Pre-set Popular City End-->
+            </section>
+        </aside>
+            <!-- Main Weather Table -->
+            <section id="weatherinfo">
+                <div id="weeklyForecast">
+                </div>
+                <div id="day1forecast">
+                    <h2>City: <span class="day1City"></span></h2>
+                    <h2>Temperature: <span class="day1Temperature"></span></h2>
+                    <h2>Humidity: <span class="day1Humidity"></span></h2>
+                    <h2>Wind: <span class="day1Wind"></span></h2>
+                    <h2>Weather: <span class="day1Weather"></span></h2>
+                </div>
+            </section>
+            <!-- Main Weather Table End -->
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
