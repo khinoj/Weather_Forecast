@@ -1,13 +1,13 @@
-var API_Key = "18a1c6a969bf5f3e8eb4283a61d43a89";
-var userInputEl = document.getElementById('userinput');
-var searchbtnEl = document.getElementById('searchbtn');
-var majorCitiesEl = document.querySelectorAll('.majorcities');
-var weeklyForecastEl = document.getElementById('weeklyForecast');
-var day1CityEl = document.querySelector('.day1City');
-var day1TemperatureEl = document.querySelector('.day1Temperature');
-var day1HumidityEl = document.querySelector('.day1Humidity');
-var day1WindEl = document.querySelector('.day1Wind');
-var day1WeatherEl = document.querySelector('.day1Weather');
+const API_Key = "18a1c6a969bf5f3e8eb4283a61d43a89";
+let userInputEl = document.getElementById('userinput');
+let searchbtnEl = document.getElementById('searchbtn');
+let majorCitiesEl = document.querySelectorAll('.majorcities');
+let weeklyForecastEl = document.getElementById('weeklyForecast');
+let day1CityEl = document.querySelector('.day1City');
+let day1TemperatureEl = document.querySelector('.day1Temperature');
+let day1HumidityEl = document.querySelector('.day1Humidity');
+let day1WindEl = document.querySelector('.day1Wind');
+let day1WeatherEl = document.querySelector('.day1Weather');
 const date = new Date();
 const todaysDate = date.toLocaleDateString();
 
@@ -15,7 +15,9 @@ const todaysDate = date.toLocaleDateString();
 function todayWeather() {
     searchbtnEl.addEventListener('click', function () {
         console.log('Search BTN');
-        var requesturl = `http://api.openweathermap.org/data/2.5/weather?q=${$('#userinput').val()}&units=imperial&appid=${API_Key}`;
+        let requesturl = `http://api.openweathermap.org/data/2.5/weather?q=${$('#userinput').val()}&units=imperial&appid=${API_Key}`;
+
+        fiveDays();
 
         fetch(requesturl)
             .then(function (response) {
@@ -28,6 +30,9 @@ function todayWeather() {
                 console.log('Humidity', forecastResponse.main.humidity);
                 console.log('Wind Speed', forecastResponse.wind.speed);
                 console.log('Clouds', forecastResponse.weather[0].main);
+
+                const lat = forecastResponse.coord.lat;
+                const lon = forecastResponse.coord.lon;
 
                 let cityName = document.createElement('span');
                 cityName.textContent = (forecastResponse.name) + " " + todaysDate;
@@ -81,48 +86,13 @@ function clearWeather() {
     day1WeatherEl.textContent = " ";
 };
 
-
-for (let i = 0; i < majorCitiesEl.length; i++) {
-    majorCitiesEl[i].addEventListener('click', function () {
-        console.log('cities');
-    });
+function fiveDays(lat, lon) {
+    let requesturl2 = `http://api.openweathermap.org/data/2.5/forecast?q=${$('#userinput').val()}&lat=${lat}&lon=${lon}&appid=${API_Key}&units=imperial`;
+    fetch(requesturl2)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (fiveData) {
+            console.log('five Day', fiveData);
+        })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $('#searchbtn').on('click', function () {
-//     console.log('Search Btn');
-//     var requesturl = `http://api.openweathermap.org/data/2.5/forecast?q=${$('#userinput').val()}&units=imperial&appid=${API_Key}`;
-
-//     fetch(requesturl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (forecastResponce) {
-//             console.log(forecastResponce);
-//         })
-// });
-
-// $('.majorcities').on('click', function () {
-//     console.log('City Btn');
-// });
