@@ -91,7 +91,6 @@ function clearWeather() {
     day1WeatherEl.textContent = " ";
 };
 
-
 function fiveDays(lat, lon) {
     let requesturl2 = `http://api.openweathermap.org/data/2.5/forecast?q=${$('#userinput').val()}&lat=${lat}&lon=${lon}&appid=${API_Key}&units=imperial`;
     fetch(requesturl2)
@@ -104,6 +103,8 @@ function fiveDays(lat, lon) {
             for (let i = 0; i < fiveData.list.length; i+=8) {
                 console.log('i', fiveData.list[i]);
              
+                
+
             };
         })
 }
