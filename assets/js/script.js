@@ -121,10 +121,14 @@ function fiveDays(lat, lon) {
                 const humidityEl = document.createElement('p');
                 humidityEl.textContent = 'Humidity: ' + forecast.main.humidity + '%';
 
+                const windEl = document.createElement('p');
+                windEl.textContent = 'Wind Speed: ' + forecast.wind.speed + 'MPH';
+
                 // Append the elements to the dayForecast div
                 dayForecast.appendChild(dateEl);
                 dayForecast.appendChild(temperatureEl);
                 dayForecast.appendChild(humidityEl);
+                dayForecast.appendChild(windEl);
 
                 // Append the dayForecast div to the fiveDaysForecastEl element
                 fiveDaysForecastEl.appendChild(dayForecast);

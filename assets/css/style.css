@@ -100,4 +100,5 @@ button {
 /* Style for temperature and humidity */
 .day-forecast p {
     margin: 0px;
+    padding: 10px;
 }
