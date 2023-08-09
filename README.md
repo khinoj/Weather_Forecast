@@ -29,3 +29,5 @@
 
 ## GitHub
 
+1. https://github.com/khinoj/Weather_Forecast
+2. https://khinoj.github.io/Weather_Forecast/

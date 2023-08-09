@@ -16,7 +16,7 @@ const todaysDate = date.toLocaleDateString();
 function todayWeather() {
     searchbtnEl.addEventListener('click', function () {
         console.log('Search BTN');
-        let requesturl = `http://api.openweathermap.org/data/2.5/weather?q=${$('#userinput').val()}&units=imperial&appid=${API_Key}`;
+        let requesturl = `https://api.openweathermap.org/data/2.5/weather?q=${$('#userinput').val()}&units=imperial&appid=${API_Key}`;
 
         fiveDays();
 
@@ -92,7 +92,7 @@ function clearWeather() {
 
 //Next Day Weather Report
 function fiveDays(lat, lon) {
-    let requesturl2 = `http://api.openweathermap.org/data/2.5/forecast?q=${$('#userinput').val()}&lat=${lat}&lon=${lon}&appid=${API_Key}&units=imperial`;
+    let requesturl2 = `https://api.openweathermap.org/data/2.5/forecast?q=${$('#userinput').val()}&lat=${lat}&lon=${lon}&appid=${API_Key}&units=imperial`;
 
     fetch(requesturl2)
         .then(function (response) {
