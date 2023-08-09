@@ -1,13 +1,18 @@
 const API_Key = "18a1c6a969bf5f3e8eb4283a61d43a89";
 let userInputEl = document.getElementById('userinput');
 let searchbtnEl = document.getElementById('searchbtn');
-let majorCitiesEl = document.querySelectorAll('.majorcities');
+// let majorCitiesEl = document.querySelectorAll('.majorcities');
 let weeklyForecastEl = document.getElementById('weeklyForecast');
 let day1CityEl = document.querySelector('.day1City');
 let day1TemperatureEl = document.querySelector('.day1Temperature');
 let day1HumidityEl = document.querySelector('.day1Humidity');
 let day1WindEl = document.querySelector('.day1Wind');
 let day1WeatherEl = document.querySelector('.day1Weather');
+let box1El = document.getElementById('box1');
+let box2El = document.getElementById('box2');
+let box3El = document.getElementById('box3');
+let box4El = document.getElementById('box4');
+let box5El = document.getElementById('box5');
 const date = new Date();
 const todaysDate = date.toLocaleDateString();
 
@@ -35,11 +40,11 @@ function todayWeather() {
                 const lon = forecastResponse.coord.lon;
 
                 let cityName = document.createElement('span');
-                cityName.textContent = (forecastResponse.name) + " " + todaysDate;
+                cityName.textContent = (forecastResponse.name) + " - " + todaysDate;
                 day1CityEl.appendChild(cityName);
 
                 let cityTemp = document.createElement('span');
-                cityTemp.textContent = (forecastResponse.main.temp) + "F";
+                cityTemp.textContent = (forecastResponse.main.temp) + " F ";
                 day1TemperatureEl.appendChild(cityTemp);
 
                 let cityHumidity = document.createElement('span');
@@ -86,6 +91,7 @@ function clearWeather() {
     day1WeatherEl.textContent = " ";
 };
 
+
 function fiveDays(lat, lon) {
     let requesturl2 = `http://api.openweathermap.org/data/2.5/forecast?q=${$('#userinput').val()}&lat=${lat}&lon=${lon}&appid=${API_Key}&units=imperial`;
     fetch(requesturl2)
@@ -93,6 +99,11 @@ function fiveDays(lat, lon) {
             return response.json();
         })
         .then(function (fiveData) {
-            console.log('five Day', fiveData);
+            console.log('five Day', fiveData.list);
+
+            for (let i = 0; i < fiveData.list.length; i+=8) {
+                console.log('i', fiveData.list[i]);
+             
+            };
         })
 }
