@@ -8,15 +8,21 @@ let day1TemperatureEl = document.querySelector('.day1Temperature');
 let day1HumidityEl = document.querySelector('.day1Humidity');
 let day1WindEl = document.querySelector('.day1Wind');
 let day1WeatherEl = document.querySelector('.day1Weather');
-let fiveDaysForecastEl = document.getElementById('fiveDaysForecast')
+let fiveDaysForecastEl = document.getElementById('fiveDaysForecast');
 const date = new Date();
 const todaysDate = date.toLocaleDateString();
+
+let storageArr = JSON.parse(localStorage.getItem('userInput')) || [];
 
 // shows the daily section upon button click with userinput
 function todayWeather() {
     searchbtnEl.addEventListener('click', function () {
         console.log('Search BTN');
-        let requesturl = `https://api.openweathermap.org/data/2.5/weather?q=${$('#userinput').val()}&units=imperial&appid=${API_Key}`;
+        
+        let requesturl = `https://api.openweathermap.org/data/2.5/weather?q=${userInputEl.value}&units=imperial&appid=${API_Key}`;
+
+        storageArr.push(userInputEl.value);
+        localStorage.setItem('userInput', JSON.stringify(storageArr));
 
         fiveDays();
 
@@ -89,6 +95,14 @@ function clearWeather() {
     day1WindEl.textContent = " ";
     day1WeatherEl.textContent = " ";
 };
+
+function pullStorage() {
+    for (let i = 0; i < storageArr.length; i++) {
+        const element = storageArr[i];
+        var btn = document.createElement('button');
+        btn.textContent =  element;
+    }
+}
 
 //Next Day Weather Report
 function fiveDays(lat, lon) {
